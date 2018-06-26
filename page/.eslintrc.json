@@ -1,0 +1,12 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "jest/globals": true
+  },
+  "globals" : {
+    "__API_BASE_URL__": true,
+    "twttr": true
+  },
+  "plugins": ["jest"]
+}
