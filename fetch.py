@@ -164,7 +164,7 @@ def init():
 
 def initYears():
     session = Session(engine)
-    for year in range(1900,  2017):
+    for year in range(1900, 2018):
         session.add(MovieYearPage(year))
     session.commit()
 
