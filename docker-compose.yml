@@ -2,6 +2,14 @@
 version: '3.1'
 
 services:
+  app:
+    build: ./
+    image: gender-fetcher
+    environment:
+      - 'DATABASE_URL=postgresql://postgres:postgres@postgres/postgres'
+      - 'TIMEZONE=Europe/Paris'
+    env_file:
+      - .env
   postgres:
     restart: always
     image: postgres:10.4-alpine

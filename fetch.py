@@ -133,8 +133,12 @@ def search_movies():
     session = Session(engine)
     yearPage = session.query(MovieYearPage).\
         filter((MovieYearPage.Page == 1) |
-               (MovieYearPage.Page < MovieYearPage.TotalPages)).\
+               (MovieYearPage.Page < MovieYearPage.TotalPages),
+               MovieYearPage.Page < 6).\
         order_by(MovieYearPage.Page).first()
+    if yearPage is None:
+        return
+
     logger.warning("fetching movies for year {} / Page {}".format(
         yearPage.Year,
         yearPage.Page))
@@ -181,7 +185,8 @@ if __name__ == '__main__':
     logging.getLogger().addHandler(logging.StreamHandler())
     search_movies()
 
-    scheduler = BlockingScheduler()
-    scheduler.add_job(movie_fetcher, 'interval', seconds=2)
-    scheduler.add_job(search_movies, 'interval', seconds=30)
+    scheduler = BlockingScheduler({'apscheduler.timezone':
+                                   os.environ['TIMEZONE']})
+    scheduler.add_job(movie_fetcher, 'interval', seconds=1)
+    scheduler.add_job(search_movies, 'interval', seconds=15)
     scheduler.start()
