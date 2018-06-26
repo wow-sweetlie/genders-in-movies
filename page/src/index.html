@@ -1,9 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Getting Started</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title>Gender representation in movies</title>
   </head>
   <body>
-    <script src="main.js"></script>
+    <div class="container">
+      <h1 class="title has-text-centered is-large">Gender representation in movies</h1>
+    </div>
+    <div class ="content">
+      <div class="container">
+        <canvas id="graph" />
+      </div>
+    </div>
+    <article class ="section">
+      <div class="container">
+        <div class="content">
+          <h2 class="title">What is this ?</h2>
+          <p>For me it's a code
+            <a href="https://en.wikipedia.org/wiki/Kata_(programming)">
+              kata
+            </a>,so don't give to much credit to it
+          </p>
+          <p>
+            I wanted to try to figure how men/women are represented in the first
+            roles, with a simple aproach here is what i've done:
+            <ul>
+              <li>I got the list of top movies of each year</li>
+              <li>counted how many women / men in the first three roles</li>
+              <li>removed cases where a gender is unknown</li>
+              <li>all data courtesy of
+                <a href="https://www.themoviedb.org/">themoviedb.org</a>
+                api</li>
+            </ul>
+          </p>
+          <h2 class="title">the cast order is not quite the same depending on
+            the website the data is pulled from. isn't it ?
+          </h2>
+          <p>True</p>
+          <h2 class="title">I don't trust you</h2>
+          <p>You should not, make your <a
+              href="https://github.com/wow-sweetlie/genders-in-movies">own
+              experience</a>.
+          </p>
+          <h2 class="title">Enough data ! I want to learn more !
+          </h2>
+          <p>
+            <a href="http://www.erynnbrook.com/">Erynn Brook</a> can be the
+            start of your journey
+          </p>
+        </div>
+      </div>
+    </article>
+    <footer class="footer">
+      <div class="container">
+        <div class="content">
+        <div class="box">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <img src=<%= require('./avatar.jpg') %> alt="my avatar"/>
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <h1 class="title">
+                  Sweetie
+                </h1>
+                <h2 class="subtitle">
+                  transwomen, coder
+                </h2>
+              </div>
+              <nav class="level is-mobile">
+                <div class="level-left">
+                  <a class="level-item" aria-label="github">
+                    <span class="icon">
+                      <i class="fab fa-github" aria-hidden="true"></i>
+                    </span>
+                      my github
+                  </a>
+                  <a class="level-item" aria-label="twitter">
+                    <span class="icon">
+                      <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </span>
+                      my twitter
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        Smile ! this website does not track you :)
+        <a href="https://github.com/wow-sweetlie/genders-in-movies">code</a>
+        available under <a href="https://opensource.org/licenses/MIT">
+          MIT Licence
+          </a>
+      </div>
+    <footer>
   </body>
 </html>
