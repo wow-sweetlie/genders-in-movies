@@ -1,8 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
 
+const mode = process.env.WEBPACK_SERVE ? 'development' : 'production';
+
 module.exports = {
-	mode: process.env.WEBPACK_SERVE ? 'development' : 'production',
+	mode,
   entry: './src/index.js',
   output: {
     filename: 'main.js',
@@ -26,7 +29,7 @@ module.exports = {
       {
         test: /\.(sass|scss)$/,
         use: [
-          'style-loader',
+          mode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
         ]
@@ -42,6 +45,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       inject: 'body',
-      })
+      }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
   ]
 };

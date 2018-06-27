@@ -15,10 +15,6 @@ function womenLine(data) {
   return data.data.map(year => (year.women/(year.women+year.men) * 100))
 }
 
-function parityLine(data) {
-  return data.data.map(() => 50)
-}
-
 function years(data) {
   return data.data.map(year => year.year)
 }
@@ -44,7 +40,7 @@ window.onload = function() {
       },
       title: {
         display: true,
-        text: "Women presence in first roles",
+        text: "women representation in the first three roles by year",
       },
       tooltips: {
         callbacks: {
@@ -63,6 +59,10 @@ window.onload = function() {
       scales: {
         yAxes: [{
           type: 'linear',
+          scaleLabel: {
+              display: true,
+              labelString: 'women'
+          },
           display: true,
           ticks: {
             min: 0,
