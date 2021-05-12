@@ -28,7 +28,7 @@
     "@fortawesome/fontawesome-free": "^5.1.0",
     "@fortawesome/fontawesome-free-brands": "^5.0.13",
     "bulma": "^0.7.1",
-    "chart.js": "^2.7.2"
+    "chart.js": "^2.9.4"
   },
   "peerDependenciese": {
     "babel-core": "6.x || ^7.0.0-0"
